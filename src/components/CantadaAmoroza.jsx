@@ -67,32 +67,27 @@ const CantadaAmoroza = ()=>{
         "Você não é marcha, mas sempre muda tudo quando chega perto."
   ];
 
-  const [frase, setFrase] = useState('✨Digite o nome do seu Crush e veja a mágica acontecer✨')
-  const numFrase = Math.floor(Math.random() * 10)
 
-  const verificaNome = () => {
-      if (nome == '') {
-          setFrase('Digite o nome do seu crush!')
-      }
-      else {
-          setTimeout(() => {
-              setFrase(nome + ', ' + cantadas[numFrase])
-          }, 2000)
-      }
-  }
+    //   const formCantada = nome + ' , ' + cantadas[0];
+      const [frase,setFrase] = useState('✨ coloque o nome do seu crush e veja a magica acontecer✨');
+      const numfrase = Math.floor(Math.random() *60);
 
-  return(
-      <div className="container">
-          <h2 className="titulo">💘 Cantadas Amorosas Para o seu Crush</h2>
-          <input
-              type="text"
-              placeholder="Nome do seu Crush"
-              value={nome}
-              onChange={(e) => setNome(e.target.value)}
-          />
-          <button onClick={() => verificaNome()}>Gerar cantadas </button>
-          <p>{frase}</p>
-      </div>
-  )
+      const verificaNome = () =>{
+        if(nome ==''){
+            setFrase('Digite o nome do seu chush!')
+        }else{
+        setFrase(nome + ',' + cantadas[numfrase])
+      }
+    }
+
+    return(
+        <div className="container">
+            <h2 className="titulo">💘 Cantadas Amorosas Para o seu Crush</h2>
+            <input type="text" placeholder="Nome do seu Crush" value={nome} onChange={(e)=> setNome(e.target.value)}/>
+            <button onClick={() => verificaNome()} >Gerar cantadas </button>
+            <p>{frase}</p>
+        </div>
+    )
 }
+
 export default CantadaAmoroza;
